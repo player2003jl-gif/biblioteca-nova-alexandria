@@ -45,7 +45,7 @@ export default {
       if(url.pathname==='/api/live'&&request.method==='GET'){
         if(request.headers.get('Upgrade')?.toLowerCase()!=='websocket')return json({error:'WebSocket obrigatório.'},426);
         const stub=env.ROOM_SYNC.get(env.ROOM_SYNC.idFromName(ROOM_ID));
-        return stub.fetch('https://internal/live',request);
+        return stub.fetch(request);
       }
       if(url.pathname==='/admin'||url.pathname.startsWith('/admin/'))return admin(request,env,url);
       if(url.pathname.startsWith('/api/'))return json({error:'Rota desconhecida.'},404);
