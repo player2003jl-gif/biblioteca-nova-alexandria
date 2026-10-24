@@ -5,7 +5,7 @@ export class RoomSync extends DurableObject {
   constructor(ctx,env){super(ctx,env);this.queue=Promise.resolve();}
   async fetch(request){
     const url=new URL(request.url);
-    if(url.pathname==='/live'&&request.headers.get('Upgrade')?.toLowerCase()==='websocket'){
+    if((url.pathname==='/live'||url.pathname==='/api/live')&&request.headers.get('Upgrade')?.toLowerCase()==='websocket'){
       const pair=new WebSocketPair();const [client,server]=Object.values(pair);
       this.ctx.acceptWebSocket(server);
       return new Response(null,{status:101,webSocket:client});
