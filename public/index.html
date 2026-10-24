@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#18232b">
+  <title>Biblioteca Nova Alexandria — CF-01</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+<main>
+  <header><div><small>BNA v0.1.1 · CF-01</small><h1>Biblioteca Nova Alexandria</h1><p>Sala provisória · experimento de sincronização online</p></div><div class="tags"><span id="role">VISITANTE</span><span id="connection">CONECTANDO</span></div></header>
+  <section class="surface"><canvas id="scene" width="640" height="352" tabindex="0" aria-label="Sala provisória; use WASD ou setas para mover o avatar"></canvas><div class="meta"><span>WASD / SETAS — mover o avatar</span><span>Revisão D1: <strong id="revision">—</strong></span></div></section>
+  <section class="panels">
+    <article><h2>Estado do servidor</h2><p id="notice" role="status">Conectando à Cloudflare...</p><p class="muted">O D1 guarda o estado. Avisos WebSocket atualizam visitantes automaticamente; existe reconciliação periódica.</p></article>
+    <article><h2>Teste CF-01</h2><p>Abra esta página em outro navegador; em <code>/admin</code>, mova ou crie um caixote. A alteração deverá surgir aqui sem F5.</p></article>
+  </section>
+  <section id="admin-panel" class="admin" hidden>
+    <div class="admin-title"><h2>Administração da sala</h2><strong id="admin-auth">VERIFICANDO</strong></div>
+    <p>Selecione um caixote no cenário, arraste-o, ou utilize as setas. Apenas o administrador pode salvar.</p>
+    <p>Selecionado: <strong id="selected-name">nenhum</strong></p>
+    <div class="controls"><button data-move="0,-8">↑</button><button data-move="-8,0">←</button><button data-move="8,0">→</button><button data-move="0,8">↓</button></div>
+    <div class="controls"><label>Nome do novo caixote <input maxlength="48" id="object-name" value="Novo caixote"></label><button id="add-object">Adicionar</button><button id="remove-object">Excluir selecionado</button></div>
+  </section>
+  <footer>Biblioteca Nova Alexandria · sem arte definitiva · <a id="mode-link" href="/admin">Modo ADM</a></footer>
+</main>
+</body></html>
